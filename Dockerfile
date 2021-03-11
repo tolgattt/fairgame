@@ -21,4 +21,6 @@ RUN apt install python3-pip -y && \
     pip3 install --no-cache-dir -r requirements.txt
 
 COPY . /app
-CMD ["python3", "app.py", "amazon", "--headless"]
+
+ENTRYPOINT ["python3", "app.py"]
+CMD ["amazon", "--headless"]
