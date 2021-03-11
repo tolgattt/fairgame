@@ -22,5 +22,7 @@ RUN apt install python3-pip -y && \
 
 COPY . /app
 
+EXPOSE 8080
+
 ENTRYPOINT ["python3", "app.py"]
 CMD ["amazon", "--headless"]
