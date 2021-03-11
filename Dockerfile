@@ -3,8 +3,8 @@ FROM python:3.8.8-alpine
 WORKDIR /app
 COPY Pipfile /app
 
-RUN apk add --virtual=.run-deps chromium chromium-chromedriver openssl zlib libjpeg && \
-    apk add --virtual=.build-deps build-base musl-dev libffi-dev libxml2-dev libxslt-dev gcc jpeg-dev zlib-dev openssl-dbg openssl-dev && \
+RUN apk add --virtual=.run-deps chromium chromium-chromedriver openssl zlib libjpeg cargo rust && \
+    apk add --virtual=.build-deps build-base musl-dev libffi-dev libxml2-dev libxslt-dev gcc jpeg-dev zlib-dev openssl-dbg openssl-dev cargo rust && \
     pip install --upgrade pip && \
     pip install cryptography && \
     pip install pipenv && \
