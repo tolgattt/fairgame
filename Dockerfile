@@ -15,6 +15,7 @@ RUN apk add --virtual .run-deps chromium chromium-chromedriver openssl zlib libj
     apk add --no-cache --virtual .build-deps gcc musl-dev libc-dev libxslt-dev libffi-dev jpeg-dev openssl-dev cargo rust && \
     pip3 install cryptography && \
     pip3 install pipenv && \
+    pip install lxml && \
     pipenv lock --requirements > requirements.txt && \
     pip3 install -r requirements.txt && \
     apk del .build-deps
