@@ -1,5 +1,5 @@
 # syntax = docker/dockerfile:1.0-experimental
-FROM python:3.8.8-alpine
+FROM python:3.8.8
 RUN mkdir /app
 WORKDIR /app
 COPY Pipfile /app
