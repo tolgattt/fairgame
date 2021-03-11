@@ -1,5 +1,5 @@
 # syntax = docker/dockerfile:1.0-experimental
-FROM python:3.8-alpine
+FROM python:3.8.8-alpine
 WORKDIR /app
 COPY Pipfile /app
 
