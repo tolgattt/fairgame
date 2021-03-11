@@ -11,14 +11,14 @@ COPY Pipfile /app
 #     pip install -r requirements.txt && \
 #     apk del .build-deps
 
-RUN apk add --virtual .run-deps chromium chromium-chromedriver openssl zlib libjpeg && \
-    apk add --no-cache --virtual .build-deps gcc musl-dev libc-dev libxslt-dev libffi-dev jpeg-dev openssl-dev cargo rust && \
-    pip3 install cryptography && \
-    pip install --no-cache-dir lxml>=3.5.0 && \
+RUN apt-get update \
+    && apt-get install -y
+
+RUN apt install python3-pip -y && \
     pip3 install pipenv && \
+    export PATH=\"/home/$USER/.local/bin:$PATH\" && \
     pipenv lock --requirements > requirements.txt && \
-    pip3 install --no-cache-dir -r requirements.txt && \
-    apk del .build-deps
+    pip3 install --no-cache-dir -r requirements.txt
 
 COPY . /app
 CMD ["python3", "app.py", "amazon", "--headless"]
